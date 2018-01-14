@@ -1,0 +1,103 @@
+Polymorphism:
+* One thing in many forms is called polymorphism
+* The ability to appear in more than one form is called polymorphism
+* One person with many behaviours is called polymorphism
+
+Two types of 
+
+
+
+Method Overriding:
+To achieve method overriding we need two classes with inheritance relation
+
+Defining Method Overriding: The method implementations are available in parent class, but we do not want that method implementations so override that same method in child class to declare the child implementations
+
+While overriding the method parent class is called overriden method, the child class method is called overriding method
+
+While overriding the method we must follow 8 rules
+1. The overriden class method signature and the overriding method signature must be same.
+2. The overriden class method return type and the overriding method return type must be same at premitive level. Thus, with premitive data type of parameters/local variables. (Method signature means method name, logic, invoking)
+3. Overidding method return type is sub-type of overriden method return type. This concept is called co-variant return type
+4. If overriden method class declared as final class that specific class methods can not be override in child class. Even methods declared with final modifier can not be overriden. Overridden method can not be final.
+Note: Defining final modifier: Final modifier is applicable for class, method & variable. 
+
+If a class declared as final that class can not be extended to child class and that specific class all methods can not be overridden. But variables of that specific class are not final, we can reassign values to those variables.
+If a method declared as a final we can not override that specific method.
+If a variable declared as a final we can not reassign values to that specific variable.
+
+5. Static methods can not be overridden
+
+Note: 
+parent p = new parent(); //valid
+child c = new child(); //valid
+parent p1 = new child(); //valid
+child c1 = new parent(); // invalid we can not create a reference variable of child class for a parent class object
+
+Note1: 
+parent p = new child(); //the reference variable p comes through the compiler, child() object comes through the runtime
+Typecasting
+
+Note2:
+class parent {
+	static void m1(){System.out.println("parent m1 method");}
+}
+
+class child extends parent{
+	static void m1(){System.out.println("child m1 method");}
+	public static void main(String[] argv){
+	parent p = new child();
+	p.m1();
+}
+}
+
+/* in this case method will be executed from parent class because parent class m1 method declared as a static method so it will be loaded as part of class loading so the m1 method can not be overriden. This concept is called method hiding concept*/
+
+6. While overriding method we should have either same level permission to parent and child class or we should have increased permission levels from parent class to child class.
+
+/*
+case 1: Same Level
+class Parent {
+void m1(){System.out.println("parent m1");} //overriden method
+}
+class Child extends Parent {
+void m1(){System.out.println("child m1");}
+}
+
+case 2: Increasing level
+class Parent {
+protected void m1(){System.out.println("parent m1");} //overriden method
+}
+class Child extends Parent {
+public void m1(){System.out.println("child m1");}
+}
+
+Case 3: Decreasing level
+class Parent {
+public void m1(){System.out.println("parent m1");}
+}
+class Child extends Parent {
+public void m1(){System.out.println("child m1");}
+}
+
+It casuses error message 
+error: m1() in child cannot override m1() in Parent void m1(){System.out.println("child m1");}
+attempting to assign weaker access privileges; was public
+
+*/
+
+-----------------------------------------------------------------------------------------
+Comparision class, abstract class, interface
+
+* Class is like questions with answers
+* Abstract class is like some questions are with answers and some questions are without answers. User will declare answers(implementations) to those questions which does not have answers(implementations). Abstract class holds partial implementations.
+* Interface is like all questions without answers. User should declare answers(implementations) to those all questions irrespective of requirements.
+
+
+
+
+
+
+
+
+
+
